@@ -1,4 +1,5 @@
 require 'fog'
+require 's3etag'
 
 module S3Poller
 

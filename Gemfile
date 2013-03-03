@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 gem "fog"
+gem "s3etag"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
