@@ -1,6 +1,8 @@
 = s3poller
 
-Description goes here.
+Work in progres..
+
+Use case: Legacy/proprietary app reads from a folder. Other app stores files in S3. Run this poller to pull down latest changes from S3 to local folder which legacy/proprietary app can then access..
 
 == Contributing to s3poller
  
