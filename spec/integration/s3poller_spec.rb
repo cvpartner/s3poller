@@ -2,15 +2,15 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe S3Poller::Poller do
 
-  let(:poller) { S3Poller::Poller.new(AWS_CONFIG) }
+  let(:local_path) { "#{File.expand_path(File.dirname(__FILE__) + '/../documents')}/" }
+  let(:poller) { S3Poller::Poller.new(AWS_CONFIG, local_path) }
 
-  it "should list folders in the bucket" do
-    poller.files.inject([]) {|a, f| a << f.key; a}.should == ["subfolder/","subfolder/test.txt"]
+  it "should include changed files" do 
+    poller.files_to_download.first.key.should == "subfolder/changed.txt"
   end
 
-  it "should have same etag" do
-    path = File.expand_path(File.dirname(__FILE__) + '/../documents/subfolder/test.txt')
-    poller.files.head("subfolder/test.txt").etag.should == S3Etag.calc(:file => path)
+  it "should include new files"  do
+    poller.files_to_download.last.key.should == "subfolder/new.txt"
   end
 
 end
