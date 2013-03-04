@@ -20,8 +20,9 @@ module S3Poller
 
       def should_download?(file)
         local_filename = "#{@local_path}#{file.key}"
-        return true unless File.exist?(local_filename)
+        return false if local_filename =~ /\/$/
         return false if File.directory?(local_filename)
+        return true unless File.exist?(local_filename)
         S3Etag.calc(:file => local_filename) != file.etag
       end
 
