@@ -8,15 +8,26 @@ module S3Poller
     def initialize(aws_config, local_path)
       @local_path = local_path
       @aws_config = aws_config
+      @downloader = Downloader.new(local_path)
     end
 
-    def files_to_download
-      bucket.files.select do |file|
-        should_download?(file)
+    def poll
+      files_to_download.each do |file| 
+        @downloader.download(file)
       end
     end
 
     private
+
+      def files_to_download
+        files.select do |file|
+          should_download?(file)
+        end
+      end
+
+      def files
+        bucket.files.inject([]) {|files, file| files << file; files}
+      end
 
       def should_download?(file)
         local_filename = "#{@local_path}#{file.key}"
