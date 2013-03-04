@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "s3poller"
   gem.homepage = "http://github.com/erlingwl/s3poller"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Poll and download from S3 to local folder}
+  gem.description = %Q{Poll and download from S3 to local folder}
   gem.email = "erlingwl@gmail.com"
   gem.authors = ["Erling Wegger Linde"]
   gem.executables = ['s3poller']

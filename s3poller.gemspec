@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Erling Wegger Linde"]
   s.date = "2013-03-04"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Poll and download from S3 to local folder"
   s.email = "erlingwl@gmail.com"
   s.executables = ["s3poller"]
   s.extra_rdoc_files = [
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/s3poller/cli.rb",
     "lib/s3poller/downloader.rb",
     "lib/s3poller/poller.rb",
+    "s3poller.gemspec",
     "spec/documents/subfolder/changed.txt",
     "spec/documents/subfolder/test.txt",
     "spec/integration/s3poller_spec.rb",
@@ -40,7 +41,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.11"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Poll and download from S3 to local folder"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
