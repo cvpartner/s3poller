@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{TODO: longer description of your gem}
   gem.email = "erlingwl@gmail.com"
   gem.authors = ["Erling Wegger Linde"]
+  gem.executables = ['s3poller']
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

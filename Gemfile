@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "thor"
 gem "fog"
 gem "s3etag"
 
