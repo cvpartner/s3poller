@@ -3,7 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe S3Poller::Poller do
 
   let(:local_tmp_path) { "#{File.expand_path(File.dirname(__FILE__) + '/../tmp')}/" }
-  let(:tmp_poller) { S3Poller::Poller.new(AWS_CONFIG, local_tmp_path) }
+  let(:config_path) { "#{File.dirname(__FILE__)}/../integration_config/aws.yml" }
+  let(:tmp_poller) { S3Poller::Poller.new(config_path, local_tmp_path) }
 
   it "should download the files" do
     FileUtils.remove_dir("#{local_tmp_path}subfolder", true)

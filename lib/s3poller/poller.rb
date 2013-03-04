@@ -5,15 +5,14 @@ module S3Poller
 
   class Poller
 
-    def initialize(aws_config, local_path)
+    def initialize(config_path, local_path)
       @local_path = local_path
-      @aws_config = aws_config
-      @downloader = Downloader.new(local_path)
+      @aws_config = YAML::load(File.open(config_path))
     end
 
     def poll
       files_to_download.each do |file| 
-        @downloader.download(file)
+        downloader.download(file)
       end
     end
 
@@ -35,6 +34,10 @@ module S3Poller
         return false if File.directory?(local_filename)
         return true unless File.exist?(local_filename)
         S3Etag.calc(:file => local_filename) != file.etag
+      end
+
+      def downloader
+        @downloader ||= Downloader.new(@local_path)
       end
 
       def bucket

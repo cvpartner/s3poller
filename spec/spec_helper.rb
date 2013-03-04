@@ -8,8 +8,6 @@ require 's3poller'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-AWS_CONFIG = YAML::load(File.open("#{File.dirname(__FILE__)}/integration_config/aws.yml"))
-
 RSpec.configure do |config|
   
 end
