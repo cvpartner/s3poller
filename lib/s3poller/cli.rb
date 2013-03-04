@@ -12,8 +12,13 @@ module S3Poller
 
     desc 'poll', "Polls S3 once."
     def poll
-      S3Poller::Poller.new(options[:config_path], options[:local_path]).poll
+      s3poller = S3Poller::Poller.new(options[:config_path], options[:local_path])
+      while true
+        s3poller.poll
+        sleep 1
+      end
     end
+    
   end
 
 end
