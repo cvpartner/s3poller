@@ -6,10 +6,13 @@ require 's3poller/version'
 Gem::Specification.new do |s|
   s.name = "s3poller"
   s.version = S3poller::VERSION
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.platform    = Gem::Platform::RUBY
   s.authors = ["Erling Wegger Linde"]
+  s.email = ["erlingwl@gmail.com"]
+  s.homepage =
+  s.summary = "Poll and download from S3 to local folder"
   s.description = "Poll and download from S3 to local folder. More info coming.."
-  s.email = "erlingwl@gmail.com"
+  
   s.executables = ["s3poller"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -21,5 +24,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/erlingwl/s3poller"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.summary = "Poll and download from S3 to local folder"
+
+  s.add_dependency "thor"
+  s.add_dependency "fog"
+  s.add_dependency "s3etag"
+
+  s.add_development_dependency "rspec"
+  
 end
