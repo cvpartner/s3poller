@@ -11,8 +11,12 @@ module S3Poller
     end
 
     def poll
-      files_to_download.each do |file| 
-        downloader.download(file)
+      begin
+        files_to_download.each do |file| 
+          downloader.download(file)
+        end
+      rescue Exception => e
+        $log.error("Failed to poll #{e.message}")
       end
     end
 
