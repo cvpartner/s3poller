@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Erling Wegger Linde"]
   s.date = "2013-03-06"
-  s.description = "Poll and download from S3 to local folder"
+  s.description = "Poll and download from S3 to local folder. More info coming.."
   s.email = "erlingwl@gmail.com"
   s.executables = ["s3poller"]
   s.extra_rdoc_files = [
