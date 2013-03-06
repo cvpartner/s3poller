@@ -9,7 +9,9 @@ require File.join(LIBRARY_PATH, 'cli')
 
 module S3Poller
 
-  $log = Logger.new(STDOUT)
+  $stdout.sync = true
+
+  $log = Logger.new($stdout)
   $log.level = Logger::INFO
 
 end
