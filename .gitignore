@@ -42,6 +42,8 @@ spec/tmp
 #\#*
 #.\#*
 
+tmp/
+
 # For vim:
 #*.swp
 

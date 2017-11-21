@@ -14,8 +14,14 @@ module S3Poller
     def poll
       s3poller = S3Poller::Poller.new(options[:config_path], options[:local_path])
       while true
-        s3poller.poll
-        sleep 1
+        begin
+          Timeout::timeout(1800) do
+            s3poller.poll
+            sleep 1
+          end
+        rescue Timeout::Error => e
+          $log.error("S3 poller did not finish within 30 minutes, #{e.message}")
+        end
       end
     end
     
